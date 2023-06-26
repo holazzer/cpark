@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw7i7nfjcch4b"]
+
+[ext_resource type="Script" path="res://Gusher.cs" id="1_qy4ox"]
+
+[sub_resource type="Theme" id="Theme_1awkw"]
+default_font_size = 22
+
+[sub_resource type="SystemFont" id="SystemFont_y4kmm"]
+
+[sub_resource type="Theme" id="Theme_3jlns"]
+default_font = SubResource("SystemFont_y4kmm")
+default_font_size = 22
+
+[node name="Gusher" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qy4ox")
+TextPath = "res://sayer.txt"
+
+[node name="FullRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="_LabelBg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.719
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 118.0
+offset_top = -1.19202
+offset_right = -99.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.305882)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="OneShotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CheckBoxAnim" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.743
+anchor_top = 0.078
+anchor_right = 0.947
+anchor_bottom = 0.179
+offset_left = 12.062
+offset_top = 9.096
+offset_right = -17.6021
+offset_bottom = -0.472
+grow_horizontal = 0
+theme = SubResource("Theme_1awkw")
+text = "Animate Text"
+
+[node name="CheckBoxAuto" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.738
+anchor_top = 0.183
+anchor_right = 0.933
+anchor_bottom = 0.293
+offset_left = 19.892
+offset_top = 5.45599
+offset_right = -23.478
+offset_bottom = -11.024
+grow_horizontal = 0
+theme = SubResource("Theme_1awkw")
+text = "Auto "
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.755
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 156.0
+offset_top = -8.84003
+offset_right = -123.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_3jlns")
+text = "quwer
+n你好
+qedc
+2d"
+autowrap_mode = 3
+
+[connection signal="gui_input" from="FullRect" to="." method="_on_full_rect_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="OneShotTimer" to="." method="_on_one_shot_timer_timeout"]
+[connection signal="toggled" from="CheckBoxAnim" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="CheckBoxAuto" to="." method="_on_check_box_auto_toggled"]

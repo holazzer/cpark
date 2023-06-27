@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4qnvfj811hmv"]
+
+[ext_resource type="Script" path="res://GridBox1.cs" id="1_f06dq"]
+[ext_resource type="Material" uid="uid://bjwk733a12n07" path="res://white.material" id="2_gqel1"]
+[ext_resource type="Material" uid="uid://bufjeopiq528b" path="res://green.material" id="3_ovfjv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vvp22"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ni5am"]
+
+[node name="GridBox1" type="Node3D"]
+script = ExtResource("1_f06dq")
+WhiteMaterial = ExtResource("2_gqel1")
+GreenMaterial = ExtResource("3_ovfjv")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = ExtResource("2_gqel1")
+gi_mode = 0
+mesh = SubResource("BoxMesh_vvp22")
+
+[node name="BoxArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxArea"]
+shape = SubResource("BoxShape3D_ni5am")
+
+[connection signal="mouse_entered" from="BoxArea" to="." method="_on_box_area_mouse_entered"]
+[connection signal="mouse_exited" from="BoxArea" to="." method="_on_box_area_mouse_exited"]

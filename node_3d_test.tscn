@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1r7m66r8dejv"]
+
+[ext_resource type="Script" path="res://node_3d_test.cs" id="1_1ijux"]
+[ext_resource type="PackedScene" uid="uid://b4qnvfj811hmv" path="res://grid_box1.tscn" id="1_b42by"]
+[ext_resource type="Environment" uid="uid://pmg5qem5nmid" path="res://environment.tres" id="1_pau1j"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_1ijux")
+GridBox = ExtResource("1_b42by")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0.825223, 2.57006, 1.45322)
+environment = ExtResource("1_pau1j")
+projection = 1
+size = 20.0

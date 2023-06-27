@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqfxeuakma24x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5d6w"]
+
+[node name="Caddy" type="Node"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_i5d6w")
+skeleton = NodePath("../..")
